@@ -4,7 +4,7 @@ import cartItems from './data';
 
 
 const CartContainer = () => {
-  const {cart} = useGlobalContext()
+  const {cart, clearCart, totalCost} = useGlobalContext()
   const cartArray = Array.from(cart.entries())
 
   if (cartArray.length === 0) {
@@ -36,12 +36,12 @@ const CartContainer = () => {
         <hr />
         <div>
           <h5 className='cart-total'>
-            total <span>$10</span>
+            total <span>{totalCost.toFixed(2)}</span>
           </h5>
         </div>
         <button
           className='btn btn-hipster'
-          onClick={() => console.log('clear cart')}
+          onClick={clearCart}
         >
           clear cart
         </button>
